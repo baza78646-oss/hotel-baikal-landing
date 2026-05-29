@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиница Байкал</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A', /* Deep Blue */
+                        accent: '#ea580c', /* Red-Orange / Tailwind orange-600 */
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .wavy-line {
+            display: inline-block;
+            width: 80px;
+            height: 10px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" stroke="%230F172A" fill="transparent" stroke-width="2"/></svg>') repeat-x;
+            background-size: 40px 10px;
+        }
+    </style>
+</head>
+<body class="font-sans text-primary bg-white">
+
+    <!-- 1. Header -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary">Байкал</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-accent font-medium transition">Главная</a>
+                    <a href="#about" class="text-gray-600 hover:text-accent font-medium transition">О гостинице</a>
+                    <a href="#advantages" class="text-gray-600 hover:text-accent font-medium transition">Преимущества</a>
+                    <a href="#rooms" class="text-gray-600 hover:text-accent font-medium transition">Номера</a>
+                    <a href="#reviews" class="text-gray-600 hover:text-accent font-medium transition">Отзывы</a>
+                    <a href="#contacts" class="text-gray-600 hover:text-accent font-medium transition">Контакты</a>
+                </nav>
+
+                <!-- Callback Button -->
+                <div class="hidden md:flex">
+                    <button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-full font-medium transition duration-300">
+                        Обратный звонок
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-accent focus:outline-none transition">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-primary/95 z-50 hidden flex-col justify-center items-center">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-accent focus:outline-none transition">
+                <i data-lucide="x" class="w-10 h-10"></i>
+            </button>
+            <nav class="flex flex-col space-y-6 text-center">
+                <a href="#" class="text-2xl text-white hover:text-accent font-medium mobile-link transition">Главная</a>
+                <a href="#about" class="text-2xl text-white hover:text-accent font-medium mobile-link transition">О гостинице</a>
+                <a href="#advantages" class="text-2xl text-white hover:text-accent font-medium mobile-link transition">Преимущества</a>
+                <a href="#rooms" class="text-2xl text-white hover:text-accent font-medium mobile-link transition">Номера</a>
+                <a href="#reviews" class="text-2xl text-white hover:text-accent font-medium mobile-link transition">Отзывы</a>
+                <a href="#contacts" class="text-2xl text-white hover:text-accent font-medium mobile-link transition">Контакты</a>
+                <button class="mt-8 border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-full text-xl font-medium transition duration-300 mobile-link">
+                    Обратный звонок
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28 bg-light overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="z-10 text-center lg:text-left">
+                    <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-primary mb-6">
+                        Гостиница <span class="text-accent">Байкал</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Идеальное место для вашего отдыха и комфортного проживания. Мы заботимся о каждой детали, чтобы вы чувствовали себя как дома.
+                    </p>
+                    <button class="bg-accent hover:bg-orange-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300">
+                        Забронировать
+                    </button>
+                </div>
+                <!-- Illustration -->
+                <div class="relative z-10 hidden lg:block">
+                    <div class="w-full h-96 bg-gray-200 rounded-2xl shadow-2xl flex items-center justify-center border-4 border-white">
+                         <span class="text-gray-400 font-medium">[ Иллюстрация гостиницы ]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="wavy-line mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">О гостинице</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-600 leading-relaxed text-lg">
+                    <p>Гостиница «Байкал» — это современный комфорт и уют по доступным ценам. Мы расположены в удобном районе города и всегда рады предложить нашим гостям сервис на высшем уровне.</p>
+                    <p>Наша главная задача — сделать ваше пребывание у нас максимально приятным и беззаботным. К вашим услугам круглосуточная стойка регистрации, чистые и светлые номера, а также множество дополнительных удобств.</p>
+                </div>
+                <div class="w-full h-80 bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center">
+                    <span class="text-gray-400 font-medium">[ Иллюстрация ресепшена ]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Advantages -->
+    <section id="advantages" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="wavy-line mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">Мы предлагаем</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="wifi" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Бесплатный Wi-Fi</h3>
+                    <p class="text-gray-600">Высокоскоростной интернет на всей территории.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="clock" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Круглосуточный доступ</h3>
+                    <p class="text-gray-600">Стойка регистрации работает 24/7 для вашего удобства.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="tv" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Телевизор</h3>
+                    <p class="text-gray-600">Современные телевизоры в каждом номере.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="parking-circle" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Парковка</h3>
+                    <p class="text-gray-600">Бесплатная охраняемая парковка для гостей.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="droplet" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Влажная уборка</h3>
+                    <p class="text-gray-600">Ежедневная уборка номеров для идеальной чистоты.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="waves" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Банно-прачечный комплекс</h3>
+                    <p class="text-gray-600">Услуги прачечной и сауна для отдыха.</p>
+                </div>
+                <!-- Card 7 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="utensils" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Собственная кухня</h3>
+                    <p class="text-gray-600">Возможность самостоятельного приготовления пищи.</p>
+                </div>
+                <!-- Card 8 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="glass-water" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Банкетный зал</h3>
+                    <p class="text-gray-600">Просторный зал для проведения мероприятий.</p>
+                </div>
+                <!-- Card 9 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="coffee" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Просторная столовая</h3>
+                    <p class="text-gray-600">Комфортная зона для приема пищи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Rooms Section -->
+    <section id="rooms" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="wavy-line mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">Наши номера</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <!-- Single Room -->
+                <div class="bg-light rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                         <span class="text-gray-400 font-medium">[ Фото 1-местного ]</span>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-primary">Одноместный номер</h3>
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-sm">
+                                <i data-lucide="user" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-gray-600 flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Односпальная кровать</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Собственный душ</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Телевизор</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Бесплатный Wi-Fi</li>
+                        </ul>
+                        <a href="#" class="block text-center bg-primary hover:bg-gray-800 text-white px-6 py-4 rounded-xl font-bold transition duration-300">
+                            1 000 ₽ / сутки
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Double Room -->
+                <div class="bg-light rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center relative">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Популярный</div>
+                        <span class="text-gray-400 font-medium">[ Фото 2-местного ]</span>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-primary">Двухместный номер</h3>
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-sm">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-gray-600 flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Двуспальная или 2 односпальные</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Собственный душ</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Телевизор</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-accent mr-3"></i> Бесплатный Wi-Fi</li>
+                        </ul>
+                        <a href="#" class="block text-center bg-accent hover:bg-orange-700 text-white px-6 py-4 rounded-xl font-bold transition duration-300">
+                            2 000 ₽ / сутки
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Reviews -->
+    <section id="reviews" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="wavy-line mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">Ваши отзывы</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                            <i data-lucide="user" class="w-8 h-8 text-gray-400"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Иван Иванов</h4>
+                            <span class="text-sm text-gray-500">12 мая 2023</span>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Отличная гостиница! Чисто, уютно, приветливый персонал. Очень порадовала собственная кухня, можно приготовить завтрак. Обязательно вернусь еще."</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                            <i data-lucide="user" class="w-8 h-8 text-gray-400"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Анна Смирнова</h4>
+                            <span class="text-sm text-gray-500">28 апреля 2023</span>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-gray-300 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Удобное расположение, есть парковка. В номере тепло и есть все необходимое. Соотношение цена/качество на высшем уровне."</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                            <i data-lucide="user" class="w-8 h-8 text-gray-400"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Михаил Петров</h4>
+                            <span class="text-sm text-gray-500">05 марта 2023</span>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Был в командировке, останавливался в одноместном номере. Быстрый Wi-Fi позволил работать без проблем. Тишина и покой. Спасибо администраторам!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Contacts -->
+    <section id="contacts" class="relative bg-gray-100">
+        <!-- Map Placeholder -->
+        <div class="w-full h-[600px] bg-gray-300 flex items-center justify-center">
+            <span class="text-gray-500 text-xl font-medium">[ Интерактивная карта ]</span>
+        </div>
+
+        <!-- Contact Card Overlaid -->
+        <div class="absolute inset-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+            <div class="h-full flex items-center lg:items-start lg:pt-24 justify-center lg:justify-start">
+                <div class="bg-white p-8 md:p-10 rounded-2xl shadow-2xl max-w-md w-full pointer-events-auto">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Контакты</h2>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Адрес</h4>
+                                <p class="text-gray-600">г. Чита, ул. Кайдаловская, 37</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <i data-lucide="phone" class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Телефоны</h4>
+                                <p class="text-gray-600">+7 (XXX) XXX-XX-XX</p>
+                                <p class="text-gray-600">+7 (XXX) XXX-XX-XX</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-gray-100">
+                        <h4 class="font-bold text-primary mb-4">Написать нам</h4>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-medium transition duration-300 flex items-center justify-center">
+                                Viber
+                            </button>
+                            <button class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-medium transition duration-300 flex items-center justify-center">
+                                WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="bg-primary pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="text-3xl font-bold text-white mb-6 block">Байкал</a>
+                    <p class="text-gray-400 mb-6">Комфорт и уют по доступным ценам в самом сердце города.</p>
+                    <button class="bg-accent hover:bg-orange-700 text-white px-6 py-3 rounded-full font-medium transition duration-300 mb-4 w-full sm:w-auto">
+                        Забронировать
+                    </button>
+                    <button class="border border-gray-600 text-white hover:bg-gray-800 px-6 py-3 rounded-full font-medium transition duration-300 w-full sm:w-auto">
+                        Обратный звонок
+                    </button>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Быстрое меню</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="text-gray-400 hover:text-accent transition duration-300">О гостинице</a></li>
+                        <li><a href="#advantages" class="text-gray-400 hover:text-accent transition duration-300">Преимущества</a></li>
+                        <li><a href="#rooms" class="text-gray-400 hover:text-accent transition duration-300">Номера</a></li>
+                        <li><a href="#reviews" class="text-gray-400 hover:text-accent transition duration-300">Отзывы</a></li>
+                        <li><a href="#contacts" class="text-gray-400 hover:text-accent transition duration-300">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacts -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-bold mb-6 text-lg">Свяжитесь с нами</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"></i>
+                            <p class="text-gray-400">г. Чита, ул. Кайдаловская, 37</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"></i>
+                            <div class="text-gray-400">
+                                <p>+7 (XXX) XXX-XX-XX</p>
+                                <p>+7 (XXX) XXX-XX-XX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">© 2023 Гостиница Байкал. Все права защищены.</p>
+                <div class="flex space-x-6 text-gray-500">
+                    <a href="#" class="hover:text-white transition duration-300">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>
